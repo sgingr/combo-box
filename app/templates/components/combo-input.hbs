@@ -1,0 +1,19 @@
+<div class="text-monospace">menuShown={{menuShown}}</div>
+<div class="text-monospace">scrollTop={{scrollTop}}</div>
+
+<div class="input-group">
+  {{input id=(concat comboName '-input') type="text" class="form-control form-control-sm" value=(get value labelField)}}
+  <div class="input-group-append">
+    <button class="btn btn-sm btn-secondary" type="button" {{action 'showMenu'}}>v</button>
+  </div>
+</div>
+
+<div id="{{comboName}}-combo-option-menu" class="combo-option-menu">
+  <div id="{{comboName}}-combo-container" class="combo-container">
+    <div id="{{comboName}}-combo-item-container" class="combo-item-container">
+      {{#each shownItems as |opt idx|}}
+        <div id="{{comboName}}-combo-option-{{idx}}" class="combo-option" onmouseover={{action 'handleItemHover'}}>{{get opt labelField}}</div>
+      {{/each}}
+    </div>
+  </div>
+</div>

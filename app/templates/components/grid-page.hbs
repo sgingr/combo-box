@@ -1,0 +1,29 @@
+
+<div class="container wrapper-outer-grid">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="wrapper-box">
+        <div>Combo-Box Yo</div>
+        {{recur-grid
+            data=data
+            checkedRows=checkedRows
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="wrapper-box mt-4">
+        <div>options={{options.length}}</div>
+        <div>filteredOptions={{filteredOptions.length}}</div>
+        <div class="">
+          {{json-dump value}}
+          {{#each checkedRows as |cr|}}
+            {{cr.ipFile}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{yield}}

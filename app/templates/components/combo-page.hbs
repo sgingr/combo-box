@@ -1,0 +1,30 @@
+
+<div class="container wrapper-outer">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="wrapper-box">
+        <div>Combo-Box Yo</div>
+        {{combo-input
+            comboName='company'
+            options=options
+            value=value
+            labelField='name'
+            filteredOptions=filteredOptions
+        }}
+        {{dummy}}
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="wrapper-box">
+        <div>options={{options.length}}</div>
+        <div>filteredOptions={{filteredOptions.length}}</div>
+        <div>name={{value.name}}</div>
+        <div>value={{value.id}}</div>
+        <div class="">
+          {{json-dump value}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{yield}}

@@ -1,0 +1,50 @@
+
+<div class="recur-grid-wrapper ">
+  <!-- Title Bar -->
+  <div class="grid-section grid-title-section container-fluid">
+    <div class="row">
+      <div class="col">
+        <span>Recurrence Management :: File List</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tool Bar -->
+  <div class="grid-section grid-toolbar-section container-fluid">
+    <div class="row">
+      <!-- Approve Selected -->
+      <div class="col-2 align-self-center text-center">
+        <span class="grid-toolbar-button" ><i class="fa fa-check-circle lg-clear-filter-icon" aria-hidden="true"></i>&nbsp; Approve Selected</span>
+      </div>
+
+      <!-- Clear Filters -->
+      <div class="col-2 align-self-center text-left">
+        <span class="grid-toolbar-button" ><i class="fa fa-minus-circle lg-clear-filter-icon" aria-hidden="true"></i>&nbsp; Clear Selections</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  {{generic-grid
+      tableId=tableId
+      tableHeight=tableHeight
+      layoutObj=layoutObj
+      data=data
+      checkedRows=checkedRows
+      cancelFile=(action 'cancelFile')
+  }}
+
+  <!-- Footer -->
+  <div class="grid-section grid-footer-section">
+    <div class="row">
+      <!-- Refresh -->
+      <div class="col align-self-center text-left">
+        <span class="grid-toolbar-button" ><i class="fa fa-minus-circle lg-clear-filter-icon" aria-hidden="true"></i>&nbsp; Refresh</span>
+        <div class="grid-toolbar-vertical-divide"></div>
+        <span>Last Refreshed: &nbsp; {{lastRefresh}}</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>

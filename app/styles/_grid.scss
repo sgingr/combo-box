@@ -1,0 +1,157 @@
+.grid-main-outer-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.grid-main-wrapper {
+  border: solid 1px silver;
+  //border-radius: 4px;
+  font-size: .75rem;
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+}
+
+.grid-header-section {
+  white-space: nowrap;
+  font-size: 0;
+  position: relative;
+  left: 0;
+  @include grey-pipe-gradient();
+  box-shadow: 0px 1px 5px rgba(128, 128, 128, 0.67);
+}
+
+.grid-body-section {
+  white-space: nowrap;
+  height: 100%;
+  overflow: auto;
+  font-size: 0;
+  margin-top: 1px;
+  background-color: #fff;
+  position: relative;
+}
+
+.grid-header-cell-outer {
+  cursor: col-resize;
+}
+
+.grid-header-cell-inner {
+  width: calc(100% - 5px);
+  cursor: default;
+}
+
+.grid-sort-button {
+  cursor: pointer;
+  transition: font-style .3s ease-in-out, font-weight .3s ease-in-out, color .3s ease-in-out;
+}
+
+.grid-table {
+  table-layout: fixed;
+  width: 0px;
+}
+
+.grid-body-cell {
+  padding: .3rem .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: background-color .3s ease-in-out;
+  border-bottom: solid 1px silver;
+  height: 1.8rem;
+  font-size: .7rem;
+}
+
+.grid-header-cell {
+  padding: .3rem .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: background-color .3s ease-in-out;
+  border-right: solid 1px silver;
+  font-size: .7rem;
+}
+
+.grid-table-row:nth-of-type(odd) .grid-body-cell {
+  background-color: #fafafa;
+}
+
+.grid-table-row:hover .grid-body-cell {
+  background-color: #ddd !important;
+}
+
+.grid-row-selected .grid-body-cell {
+  background-color: #ffff99 !important;
+}
+
+.grid-start-line, .grid-end-line {
+  position: absolute;
+  display: none;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #9e9e9e;
+}
+
+.grid-resizing-col * {
+  cursor: col-resize !important;
+  @include notSelectable();
+}
+
+/* EXTRAS that can be used for headers, footers, etc.. */
+
+.grid-section {
+  @include grey-pipe-gradient();
+  padding: .2rem .2rem;
+  border-right: solid 1px silver;
+  border-left: solid 1px silver;
+  border-top: solid 1px silver;
+  font-size: .75rem;
+}
+
+.grid-title-section {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: .8rem;
+  font-weight: 500;
+  padding-left: .5rem;
+}
+
+.grid-toolbar-section {
+
+}
+
+.grid-toolbar-section {
+  background: #d8d8d887;
+  padding: .2rem;
+}
+
+.grid-footer-section {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: .4rem;
+}
+
+.grid-toolbar-button {
+  margin: 0;
+  border: solid 1px transparent;
+  background: 0;
+  outline: 0 none;
+  overflow: hidden;
+  font-size: .75rem;
+  padding: 0 .2rem;
+  color: #495057;
+  cursor: pointer;
+}
+
+.grid-toolbar-button:hover {
+  border: solid 1px silver;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.67);
+}
+
+.grid-toolbar-vertical-divide {
+  width: 1px;
+  border-right: 1px solid #aca899;
+  display: inline;
+  margin-right: .5rem;
+}

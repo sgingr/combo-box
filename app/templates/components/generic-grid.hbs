@@ -1,0 +1,88 @@
+<div id="{{tableId}}" class="grid-main-outer-wrapper">
+  <div class="grid-main-wrapper">
+
+    <!-- Header Section -->
+    <div class="grid-header-section">
+      <table class="grid-table">
+        {{#each layoutObj as |fld fldIdx|}}
+        {{#if fld.display}}
+        <col class="grid-col-{{fldIdx}}" style="{{width fld.width}}">
+        {{/if}}
+        {{/each}}
+        <tbody>
+          <tr>
+            {{#each layoutObj as |fld fldIdx|}}
+            {{#if fld.display}}
+            <td>
+              <div class="grid-header-cell-outer" onmousedown={{action 'resizeStart' fldIdx}}>
+                <div class="grid-header-cell-inner grid-header-cell">
+                  <span class="float-left grid-sort-button" {{action 'sortRowsBy' fld.data}}>{{fld.label}}</span>&nbsp;
+                  <span class="grid-sort-icon"><i class="{{sort-icon fld.data sortByCol reverseSort}}"></i></span>
+                </div>
+              </div>
+            </td>
+            {{/if}}
+            {{/each}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Body Section -->
+    <div class="grid-body-section">
+
+      <!-- Loader
+      <div id="{{tableId}}-loader" class="lg-loader">
+        <div class="lg-loader-body">Loading...</div>
+        <div class="lg-spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>-->
+
+      <!-- Body Data -->
+      <table class="grid-table grid-body-table">
+        {{#each layoutObj as |fld fldIdx|}}
+        {{#if fld.display}}
+        <col class="grid-col-{{fldIdx}}" style="{{width fld.width}}">
+        {{/if}}
+        {{/each}}
+        <tbody>
+          {{#each data as |row rowIdx|}}
+          <tr id="grid-table-row-{{rowIdx}}" class="grid-table-row lg-table-row {{if row._selected 'lg-row-selected'}} {{if (get row '_pg._row._invalid') 'lg-invalid-row'}}">
+            {{#each layoutObj as |fld fldIdx|}}
+
+            {{#if fld.display}}
+
+            <td id="lg-cell-{{rowIdx}}-{{fldIdx}}" class="grid-body-cell grid-row-{{rowIdx}} grid-col-{{fldIdx}} {{get row (concat '_pg._col-' fldIdx '._class')}}">
+              {{#if (eq fld.type 'checkSelect')}}
+                {{input class=(concat 'lg-cell-' rowIdx '-check') disabled=row._disabled type="checkbox" checked=row._checked }}
+              {{else}}
+                {{#if fld.action}}
+                  <a {{action 'sendActionUp' fld.action row}}>{{get row (concat '_pg._col-' fldIdx '._data')}}</a>
+                {{else}}
+                  {{get row (concat '_pg._col-' fldIdx '._data')}}
+                {{/if}}
+              {{/if}}
+            </td>
+
+            {{/if}}
+
+            {{/each}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+  <!-- Resize Lines -->
+  <div class="grid-start-line"></div>
+  <div class="grid-end-line"></div>
+
+</div>
