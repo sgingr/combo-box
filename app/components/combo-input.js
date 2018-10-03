@@ -10,6 +10,7 @@ export default Component.extend({
   |  Properties
   | -----------------------------------------------------------------------
   */
+  //I'm a change...
   inputId: computed('comboName', function() {
     return '#' + this.comboName + '-input';
   }),
